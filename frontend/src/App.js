@@ -26,6 +26,17 @@ function App() {
     console.log(arguments);
   }
 
+  function testCardClick(cardId, metadata, laneId){
+    console.log(cardId);
+    console.log(metadata);
+    console.log(laneId);
+  }
+
+  function testCardAdd(card, laneId){
+    console.log(card);
+    console.log(laneId);
+  }
+
   return (
     // <ButtonAppBar>
     // </ButtonAppBar>
@@ -36,6 +47,8 @@ function App() {
         <Board 
           data={data}
           onDataChange={testConsole}
+          onCardClick={testCardClick}
+          onCardAdd={testCardAdd}
           draggable
         />
     </div>
