@@ -19,13 +19,25 @@ function App() {
       });
   }, [])
   
+  function testConsole(newData) {
+    //requst를 발생 시키는 코드를 넣으면 데이터를 다룰 수 있을 것 같습니다.
+    console.log("테스트 입니다.");
+    console.log(newData);
+    console.log(arguments);
+  }
+
   return (
     // <ButtonAppBar>
     // </ButtonAppBar>
 
     <div className="App">
         <h1>react-trello demo</h1>
-        <Board data={data} draggable />
+        {/* 여기에 사용하려는 API를 추가해서 사용하면 됩니다. */}
+        <Board 
+          data={data}
+          onDataChange={testConsole}
+          draggable
+        />
     </div>
   )
 }
