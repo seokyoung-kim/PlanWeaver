@@ -4,6 +4,10 @@ import './App.css';
 //헤더
 import ButtonAppBar from './components/Header'
 
+//react-trello
+import data from "./data/data.json";
+import Board from "react-trello";
+
 function App() {
   const [message, setMessage] = useState("");
 
@@ -16,9 +20,13 @@ function App() {
   }, [])
   
   return (
-    <ButtonAppBar>
-      
-    </ButtonAppBar>
+    // <ButtonAppBar>
+    // </ButtonAppBar>
+
+    <div className="App">
+        <h1>react-trello demo</h1>
+        <Board data={data} draggable />
+    </div>
   )
 }
 
