@@ -1,24 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Route, Switch, NavLink } from 'react-router-dom';
+import Main from './components/Main';
+import About from './components/About';
+import Install from './components/Install';
 
-function App() {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    fetch('/api/hello')
-      .then(response => response.text())
-      .then(message => {
-        setMessage(message);
-      });
-  }, [])
-  
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">{message}</h1>
-      </header>
+    <div>
+    <ul>
+      <li><NavLink exact to="/">Home</NavLink></li>
+      <li><NavLink to="/about">About</NavLink></li>
+      <li><NavLink to="/install">Install</NavLink></li>
+    </ul>
+      <Switch>
+        <Route exact path="/" component={Main} > </Route>
+        <Route path="/about" component={About} ></Route>
+        <Route path="/install" component={Install} ></Route>
+      </Switch>
     </div>
   )
 }
